@@ -1,11 +1,23 @@
+import css from './ContactList.module.css';
+
 export const ContactList = ({ filterList, handlDelete }) => {
   return (
-    <ul>
+    <ul className={css.list}>
       {filterList().map(({ id, name, number }, index) => {
         return (
-          <li key={id}>
-            <span>{name}</span>: <span>{number}</span>
-            <button id={index} onClick={handlDelete} type="button">
+          <li className={css.item} key={id}>
+            <div>
+              <span className={css.spanName}>{name}</span>{' '}
+              <span className={css.span}>:</span>
+              <span className={css.spanPhone}>{number}</span>
+            </div>
+
+            <button
+              className={css.btnDelete}
+              id={index}
+              onClick={handlDelete}
+              type="button"
+            >
               delete
             </button>
           </li>

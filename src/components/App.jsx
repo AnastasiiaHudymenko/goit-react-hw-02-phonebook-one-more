@@ -59,7 +59,7 @@ export class App extends React.Component {
     return (
       <div
         style={{
-          height: '100vh',
+          // height: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -68,9 +68,11 @@ export class App extends React.Component {
           color: '#010101',
         }}
       >
-        <h1>Phonebook</h1>
+        <h1 style={{ fontSize: 36 }}>Phonebook</h1>
         <ContactForm onSubmit={addContact} />
-        <h2>Contacts</h2>
+        <h2 style={{ fontSize: 36, marginTop: 50, marginBottom: 20 }}>
+          Contacts
+        </h2>
         <Filter filterName={trackInputFilter} />
         <ContactList filterList={filterListName} handlDelete={handlDelete} />
       </div>
