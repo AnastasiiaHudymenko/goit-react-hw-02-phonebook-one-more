@@ -18,13 +18,14 @@ export class ContactForm extends React.Component {
   };
 
   render() {
+    const { handlAddContact, trackInputName, state } = this;
     return (
-      <form onSubmit={this.handlAddContact}>
+      <form onSubmit={handlAddContact}>
         <label>
           Name
           <input
-            value={this.state.name}
-            onChange={this.trackInputName}
+            value={state.name}
+            onChange={trackInputName}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -35,8 +36,8 @@ export class ContactForm extends React.Component {
         <label>
           Number
           <input
-            value={this.state.number}
-            onChange={this.trackInputName}
+            value={state.number}
+            onChange={trackInputName}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

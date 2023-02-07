@@ -29,7 +29,11 @@ export class App extends React.Component {
   };
 
   addContact = ({ name, number }) => {
-    if (this.state.contacts.some(el => el.name === name)) {
+    if (
+      this.state.contacts.some(
+        el => el.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+      )
+    ) {
       return Notify.failure(`${name} is already in contacts`);
     }
     const contact = {
@@ -37,14 +41,16 @@ export class App extends React.Component {
       name,
       number,
     };
-    this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
+    this.setState(({ contacts }) => ({
+      contacts: [contact, ...contacts],
     }));
   };
 
   handlDelete = event => {
     const { id } = event.target;
-    console.log(id);
+    this.setState(({ contacts }) => ({
+      contacts: contacts.filter((el, i) => i !== Number(id)),
+    }));
   };
 
   render() {
