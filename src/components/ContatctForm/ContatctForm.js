@@ -1,4 +1,5 @@
 import React from 'react';
+
 import css from './ContactForm.module.css';
 
 export class ContactForm extends React.Component {
@@ -16,6 +17,7 @@ export class ContactForm extends React.Component {
     event.preventDefault();
 
     this.props.onSubmit(this.state);
+    this.setState({ name: '', number: '' });
   };
 
   render() {

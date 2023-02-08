@@ -1,5 +1,5 @@
 import css from './Filter.module.css';
-
+import PropTypes from 'prop-types';
 export const Filter = ({ filterName }) => {
   return (
     <label className={css.label}>
@@ -12,4 +12,8 @@ export const Filter = ({ filterName }) => {
       />
     </label>
   );
+};
+
+Filter.propTypes = {
+  filterName: PropTypes.func.isRequired,
 };
