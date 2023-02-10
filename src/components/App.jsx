@@ -1,9 +1,10 @@
 import React from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { nanoid } from 'nanoid';
-import { ContactForm } from './ContatctForm/ContatctForm';
+// import { ContactForm } from './ContatctForm/ContatctForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
+import { ContactFormik } from './ContatctForm/ContactFormik';
 
 export class App extends React.Component {
   state = {
@@ -69,11 +70,13 @@ export class App extends React.Component {
         }}
       >
         <h1 style={{ fontSize: 36 }}>Phonebook</h1>
-        <ContactForm onSubmit={addContact} />
+        <ContactFormik onSubmit={addContact} />
+
         <h2 style={{ fontSize: 36, marginTop: 50, marginBottom: 20 }}>
           Contacts
         </h2>
         <Filter filterName={trackInputFilter} />
+
         <ContactList filterList={filterListName} handlDelete={handlDelete} />
       </div>
     );
